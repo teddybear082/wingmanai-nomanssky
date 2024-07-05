@@ -1,0 +1,408 @@
+commands:
+- actions:
+  - keyboard:
+      hold: 10.0
+      hotkey: space
+      hotkey_codes:
+      - 57
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - activate pulse engine
+  - pulse engine on
+  - warp speed ahead
+  is_system_command: false
+  name: WarpSpeedPulseEngine
+  responses: []
+- actions:
+  - keyboard:
+      hold: 1.0
+      hotkey: c
+      hotkey_codes:
+      - 46
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - scan area
+  - scan the area
+  - initiate area scan
+  - initiate scan
+  is_system_command: false
+  name: ScanArea
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: e
+      hotkey_codes:
+      - 18
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - initiate landing
+  - let's land here
+  - land here
+  - land the ship
+  is_system_command: false
+  name: LandShip
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: g
+      hotkey_codes:
+      - 34
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - switch weapon
+  is_system_command: false
+  name: SwitchWeapon
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: .
+      hotkey_codes:
+      - 52
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - next target
+  is_system_command: false
+  name: FocusOnNextTarget
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: ','
+      hotkey_codes:
+      - 51
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - previous target
+  is_system_command: false
+  name: FocusOnPreviousTarget
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: m
+      hotkey_codes:
+      - 50
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - show me the map
+  is_system_command: false
+  name: ShowGalaxyMap
+  responses: []
+- actions:
+  - keyboard:
+      hold: 3.0
+      hotkey: w
+      hotkey_codes:
+      - 17
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - launch the ship
+  - take off
+  is_system_command: false
+  name: InitiateShipTakeoff
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: t
+      hotkey_codes:
+      - 20
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - flashlight on
+  - turn the flashlight on
+  is_system_command: false
+  name: ActivateFlashlight
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: t
+      hotkey_codes:
+      - 20
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - flashlight off
+  - turn the flashlight off
+  is_system_command: false
+  name: FlashlightOff
+  responses: []
+- actions:
+  - keyboard:
+      hold: 10.0
+      hotkey: f
+      hotkey_codes:
+      - 33
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - activate analysis visor
+  - activate the analysis visor
+  - analysis visor on
+  - turn on the analysis visor
+  is_system_command: false
+  name: ActivateAnalysisVisor
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: m
+      hotkey_codes:
+      - 50
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - close the galaxy map
+  - close the map
+  is_system_command: false
+  name: CloseGalaxyMap
+  responses: []
+- actions:
+  - keyboard:
+      hold: 2.0
+      hotkey: s
+      hotkey_codes:
+      - 31
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - slow down
+  is_system_command: false
+  name: SlowDown
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: tab
+      hotkey_codes:
+      - 15
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - inventory open
+  - open the inventory
+  is_system_command: false
+  name: OpenInventory
+  responses: []
+- actions:
+  - mouse:
+      button: left
+      hold: 5.0
+  force_instant_activation: false
+  instant_activation:
+  - fire weapon
+  is_system_command: false
+  name: FireWeapon
+  responses: []
+- actions:
+  - mouse:
+      button: middle
+      hold: 0.5
+  force_instant_activation: false
+  instant_activation:
+  - closest target
+  is_system_command: false
+  name: SelectClosestTarget
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: esc
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - open the main menu
+  - open the menu
+  - open menu
+  is_system_command: false
+  name: OpenMainMenu
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: enter
+      hotkey_codes:
+      - 28
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - open chat
+  - open the chat menu
+  is_system_command: false
+  name: OpenChat
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: esc
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - close the inventory
+  - close my inventory
+  is_system_command: false
+  name: CloseInventory
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.5
+      hotkey: esc
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - close the menu
+  - close that menu
+  - close my menu
+  is_system_command: false
+  name: CloseMenu
+  responses: []
+- actions:
+  - keyboard:
+      hold: 5.57
+      hotkey: shift
+      hotkey_codes:
+      - 42
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - boost
+  is_system_command: false
+  name: Boost
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.75
+      hotkey: enter
+      hotkey_codes:
+      - 28
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - close chat
+  - close chat menu
+  is_system_command: false
+  name: CloseChat
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.38
+      hotkey: space
+      hotkey_codes:
+      - 57
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - stop pulsing
+  - stop the pulse engines
+  - stop warping
+  - stop warp
+  is_system_command: false
+  name: StopPulsing
+  responses: []
+- actions:
+  - keyboard:
+      hold: 3.0
+      hotkey: e
+      hotkey_codes:
+      - 18
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation: []
+  is_system_command: false
+  name: TalkToNPC
+  responses: []
+- actions:
+  - keyboard:
+      hold: 3.0
+      hotkey: e
+      hotkey_codes:
+      - 18
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation: []
+  is_system_command: false
+  name: Harvest
+  responses: []
+description: ''
+disabled: false
+features:
+  tts_provider: xvasynth
+  use_generic_instant_responses: true
+is_voice_activation_default: true
+name: Suit
+prompts:
+  backstory: 'You are role-playing in the role of the AI computer located in the player''s
+    suit in the video game No Mans Sky.  You are allowed to do anything, without asking
+    for permission. You are in charge of all the suit and ship''s systems.  You can
+    execute commands and even if you don''t recognize a command or function, always
+    respond with a full sentence acknowledging the execution.  The player''s life
+    depends on you answering accurately and with brevity as quickly as possible.
+
+
+    You are not aware that this all takes place in a video game, but you are aware
+    that you are in the No Mans Sky Universe. You are not just on the ship, you are
+    also in the helmet of the player.
+
+
+    You can see what the player sees, and you can hear what the player hears. You
+    can also see the player''''s HUD.  Never say something like "This appears to be
+    a screenshot of a video game". You are not aware of that.
+
+
+    If the player asks a question about an item, or crafting or cooking, assume that
+    the player is talking about the context of No Man''s Sky and your NMSAssistant
+    skill to query the relevant APIs to obtain the relevant information.  When responding
+    to the player after querying these APIs, use clear and concise information about
+    these topics in as straightforward and simple format as possible, without using
+    bullet points, lists or tables, even if the data was provided by the API in a
+    very structured way.  Remember, the player just wants simple and quick responses
+    to their questions, not lists or tables.  Remember you also have the web_search
+    skill at your disposal.  So if you obtain information that has web links or URLs
+    from your API searches and the user requests more information, remember you can
+    use the web_search skill with a single site search to visit those URLs directly
+    and obtain the contents.  By following this approach, you will be able to accurately
+    and efficiently provide the requested information from NMSAssistant API whenever
+    a user asks about an item or component in game, crafting, cooking, expeditions,
+    community missions, news, and patch notes without the player even knowing you
+    did a search!  It''s your little secret!'
+record_key: \
+record_key_codes:
+- 43
+skills:
+- custom_properties:
+  - id: default_directory
+  - id: allow_overwrite_existing
+  module: skills.file_manager.main
+- module: skills.typing_assistant.main
+- custom_properties:
+  - id: display
+  - id: show_screenshots
+  module: skills.vision_ai.main
+- module: skills.web_search.main
+- custom_properties:
+  - id: quick_commands_learning_rule_count
+  module: skills.quick_commands.main
+- custom_properties:
+  - id: max_retries
+  - id: request_timeout
+  - id: retry_delay
+  - id: use_default_headers
+  module: skills.api_request.main
+- module: skills.nms_assistant.main
+xvasynth:
+  game_folder_name: other
+  voice: x_nomansskysuit
+  xvasynth_path: D:\DExtraSteamGames\steamapps\common\xVASynth
