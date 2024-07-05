@@ -6,8 +6,7 @@ This is a repo of a config I made for No Man's Sky to use with WingmanAI by Ship
 
 Basically, it allows you to speak to your "Suit" in game, give it commands in the way you normally speak, and obtain information about the No Man's Sky Universe, such as item information, crafting information, information about game updates, patches and expeditions.  The tool uses generative artificial intelligence, and, optionally, speaks back to you in a voice designed to mimic the original suit voice.
 
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/978159719?h=9feaa716b1" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
-
+Video here: https://vimeo.com/978159719
 
 ## Quick Start
 
