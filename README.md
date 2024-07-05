@@ -26,10 +26,39 @@ Basically, it allows you to speak to your "Suit" in game, give it commands in th
 
 9. To use replica "Suit Voice": download **XVAsynth from steam**: https://store.steampowered.com/app/1765720/xVASynth/ and install it.  Once installed, run it just to make sure it boots up and then close it.  Download the **Suit voice files** from this repo, here: https://github.com/teddybear082/wingmanai-nomanssky/releases/tag/xvasynth_voice_files.  Unzip those into your xVASynth install folder, where you find xVASynth.exe, for example: "C:\Program Files (x86)\Steam\steamapps\common\xVASynth".  It will add the voice to  xVASynth/resources/app/models/other.
 10. Run WingmanAI (WingmanAI.exe).  Click on the **No Man's Sky folder** that you now see at the top of the interface, and click "Load".  Click on the Suit avatar picture.  Click on the **wrench** to get to settings.  Click on **"Advanced"**.  Scroll down to **Text to Speech (TTS)** as shown in the picture below. 
- Click on the **gear icon**.  Enter the **path to your xVASynth install** in the Install directory field.  **Make sure to click save.**
+ Click on the **gear icon**.  Enter the **path to your xVASynth install** in the Install directory field.  **Make sure to click save** the xVASYnth TTS setting.  Then make sure to actually **click to save again to save your profile itself**.
 
 ![image](https://github.com/teddybear082/wingmanai-nomanssky/assets/87204721/56238c60-539a-46eb-bbf9-df2a00acf2d0)
 
 ![image](https://github.com/teddybear082/wingmanai-nomanssky/assets/87204721/44e81e2f-8e05-4731-a66e-9dd1f9d63b2f)
 
 11. Try to talk to your Suit Wingman! Right now it's configured to use the "\\" key in a "Push to Talk" style, but you can click on that and set your own key in the user interface. There are also ways to have "always on" voice mode, which are covered below in Advanced Options.  Now you can start No Man's Sky and WingmanAI will be on in the background, powering your Suit!  
+
+
+## What if I don't Want to Pay / Don't Want WingmanPro
+
+The whole WingmanAI backend is open source!  You can find all the code here: https://github.com/ShipBit/wingman-ai.  You can even run it from source with python and bypass the entire .exe and UI.  Or, you can run the .exe but switch to free / local options for Speech to Text (whispercpp), LLM (choose "LocalLLM" for AI Conversation and AI Summarization Provider in the UI), and Text to Speech (xVaSynth already is local, or you can also use EdgeTTS).
+
+What you're likely to find, though, is that there really aren't good open source AI model options that can do function calling, which powers most of the really fun things about this project, like controlling game inputs and using the NMSAssistant API.  
+
+However, if you find a good option for local AI that can handle function calling, WingmanAI supports that!  You can change the AI provider to "LocalLLM" in the user interface and tell WingmanAI where to find it.
+
+If, like me, you can't find a good local AI provider, you can also try Groq, which is a free LLM provider using Llama3.  The only problem is we don't know how long Groq will be free and it is rate limited. You'll need a Groq API key.
+
+The truth is, WingmanAI can be customized extensively, and it's too detailed a subject to cover in this readme.  Hop on their discord and there are plenty of folks willing to help out!  Discord link: https://discord.gg/k8tTBar3gZ
+
+## What if I don't want to use XVaSynth for the Suit Voice?
+
+Sure that's fine.  In the WingmanAI UI, you can change the "Text to Speech (TTS)" setting in the settings for the Suit Wingman to another voice. If you're using Wingman Pro you can select Wingman Pro, and choose from a ton of voices.  You can also choose an Eleven Labs voice or a free EdgeTTS voice.  As stated above, the truth is, WingmanAI can be customized extensively, and it's too detailed a subject to cover in this readme.  Hop on their discord and there are plenty of folks willing to help out!  Discord link: https://discord.gg/k8tTBar3gZ
+
+## What do you get out of this?
+
+Nothing really, I think WingmanAI is just a super fun project and want to help people use it with their games.  Because of my early use of WingmanAI showing off a lot of custom stuff, I was invited to be a volunteer mod on their discord.  For doing that, I get a free WingmanPro sub for myself.  I don't get any sort of referral commissions or pay or anything like that.  I also contribute open-source code to the repo when I can be helpful.
+
+## How Do I Support You If I Like This Alot?
+
+I don't need anything! If you have a few bucks, use it to keep up a Wingman Pro sub, and toss them to the devs of the NMSAssistant API: https://buymeacoffee.com/kurt?ref=assistantNMS.  They are the real geniuses!
+
+## I'm Having a Problem With Using This
+
+Join the wingmanai discord and find me, I'm happy to help! https://discord.gg/k8tTBar3gZ.  You can also post issues on this github.
