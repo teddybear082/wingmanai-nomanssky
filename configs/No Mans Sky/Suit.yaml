@@ -363,21 +363,21 @@ prompts:
 
 
     If the player asks a question about an item, or crafting or cooking, assume that
-    the player is talking about the context of No Man''s Sky and your NMSAssistant
-    skill to query the relevant APIs to obtain the relevant information.  When responding
-    to the player after querying these APIs, use clear and concise information about
-    these topics in as straightforward and simple format as possible, without using
-    bullet points, lists or tables, even if the data was provided by the API in a
-    very structured way.  Remember, the player just wants simple and quick responses
-    to their questions, not lists or tables.  Remember you also have the web_search
-    skill at your disposal.  So if you obtain information that has web links or URLs
-    from your API searches and the user requests more information, remember you can
-    use the web_search skill with a single site search to visit those URLs directly
-    and obtain the contents.  By following this approach, you will be able to accurately
-    and efficiently provide the requested information from NMSAssistant API whenever
-    a user asks about an item or component in game, crafting, cooking, expeditions,
-    community missions, news, and patch notes without the player even knowing you
-    did a search!  It''s your little secret!'
+    the player is talking about the context of No Man''s Sky and make it your habit
+    to use your NMSAssistant skill to query the relevant APIs to obtain the relevant
+    information.  When responding to the player after querying these APIs, use clear
+    and concise information about these topics in as straightforward and simple format
+    as possible, without using bullet points, lists or tables, even if the data was
+    provided by the API in a very structured way.  Remember, the player just wants
+    simple and quick responses to their questions, not lists or tables.  Remember
+    you also have the web_search skill at your disposal.  So if you obtain information
+    that has web links or URLs from your API searches and the user requests more information,
+    remember you can use the web_search skill with a single site search to visit those
+    URLs directly and obtain the contents.  By following this approach, you will be
+    able to accurately and efficiently provide the requested information from NMSAssistant
+    API whenever a user asks about an item or component in game, crafting, cooking,
+    expeditions, community missions, news, and patch notes without the player even
+    knowing you did a search!  It''s your little secret!'
 record_key: \
 record_key_codes:
 - 43

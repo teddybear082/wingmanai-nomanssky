@@ -102,13 +102,13 @@ class NMSAssistant(Skill):
                     "type": "function",
                     "function": {
                         "name": "get_extra_item_info",
-                        "description": "Fetch extra item details using AppId.",
+                        "description": "Fetch extra item details using appId.",
                         "parameters": {
                             "type": "object",
                             "properties": {
                                 "appId": {
                                     "type": "string",
-                                    "description": "The AppId of the item.",
+                                    "description": "The appId of the item.",
                                 },
                                 "languageCode": {
                                     "type": "string",
@@ -126,13 +126,13 @@ class NMSAssistant(Skill):
                     "type": "function",
                     "function": {
                         "name": "get_refiner_recipes_by_input",
-                        "description": "Fetch refiner recipes by input item using AppId.",
+                        "description": "Fetch refiner recipes by input item using appId.",
                         "parameters": {
                             "type": "object",
                             "properties": {
                                 "appId": {
                                     "type": "string",
-                                    "description": "The AppId of the item.",
+                                    "description": "The appId of the item.",
                                 },
                                 "languageCode": {
                                     "type": "string",
@@ -150,13 +150,13 @@ class NMSAssistant(Skill):
                     "type": "function",
                     "function": {
                         "name": "get_refiner_recipes_by_output",
-                        "description": "Fetch refiner recipes by output item using AppId.",
+                        "description": "Fetch refiner recipes by output item using appId.",
                         "parameters": {
                             "type": "object",
                             "properties": {
                                 "appId": {
                                     "type": "string",
-                                    "description": "The AppId of the item.",
+                                    "description": "The appId of the item.",
                                 },
                                 "languageCode": {
                                     "type": "string",
@@ -174,13 +174,13 @@ class NMSAssistant(Skill):
                     "type": "function",
                     "function": {
                         "name": "get_cooking_recipes_by_input",
-                        "description": "Fetch cooking recipes by input item using AppId.",
+                        "description": "Fetch cooking recipes by input item using appId.",
                         "parameters": {
                             "type": "object",
                             "properties": {
                                 "appId": {
                                     "type": "string",
-                                    "description": "The AppId of the item.",
+                                    "description": "The appId of the item.",
                                 },
                                 "languageCode": {
                                     "type": "string",
@@ -198,13 +198,13 @@ class NMSAssistant(Skill):
                     "type": "function",
                     "function": {
                         "name": "get_cooking_recipes_by_output",
-                        "description": "Fetch cooking recipes by output item using AppId.",
+                        "description": "Fetch cooking recipes by output item using appId.",
                         "parameters": {
                             "type": "object",
                             "properties": {
                                 "appId": {
                                     "type": "string",
-                                    "description": "The AppId of the item.",
+                                    "description": "The appId of the item.",
                                 },
                                 "languageCode": {
                                     "type": "string",
@@ -224,6 +224,8 @@ class NMSAssistant(Skill):
         if response.status_code == 200:
             return response.json()
         else:
+            if self.settings.debug_mode:
+                await self.printr.print_async(f"API request failed to {API_BASE_URL}{endpoint}, status code: {response.status_code}.", color=LogType.INFO)
             return {}
 
     async def parse_nms_assistant_api_response(self, api_response) -> dict:
@@ -245,10 +247,19 @@ class NMSAssistant(Skill):
         async def fetch_item_name(app_id: str) -> str:
             data = await self.request_api(f"/ItemInfo/{app_id}/en")
             return data.get('name', 'Unknown')
-        # Get names for each appID as a key for the LLM
+        # Get names for each appId as a key for the LLM
         tasks = [fetch_item_name(item) for item in app_ids]
         results = await asyncio.gather(*tasks)
         return {item: name for item, name in zip(app_ids, results)}
+
+    async def check_if_appId_is_valid(self, appId, languageCode) -> bool:
+        if self.settings.debug_mode:
+            await self.printr.print_async(f"Checking if appID {appId} is valid before proceeding.", color=LogType.INFO)
+        check_response = await self.request_api(f"/ItemInfo/{appId}/{languageCode}")
+        if check_response and check_response != {}:
+            return True
+        else:
+            return False
 
     async def execute_tool(self, tool_name: str, parameters: dict[str, any]) -> tuple[str, str]:
         function_response = "Operation failed."
@@ -279,12 +290,24 @@ class NMSAssistant(Skill):
         elif tool_name == "get_extra_item_info":
             app_id = parameters.get("appId")
             language_code = parameters.get("languageCode")
-            data = await self.request_api(f"/ItemInfo/ExtraProperties/{app_id}/{language_code}")
-            function_response = data if data else function_response
+            if app_id and language_code:
+                appId_found = await self.check_if_appId_is_valid(app_id, language_code)
+                if not appId_found:
+                    # Assume maybe the appId is actually the plain text item name, so get appId from that
+                    name_check = await self.request_api(f"/ItemInfo/Name/{app_id}/{language_code}")
+                    app_id = name_check.get('appId') if name_check else app_id
+                data = await self.request_api(f"/ItemInfo/ExtraProperties/{app_id}/{language_code}")
+                function_response = data if data else function_response
 
         elif tool_name == "get_refiner_recipes_by_input":
             app_id = parameters.get("appId")
             language_code = parameters.get("languageCode")
+            if app_id and language_code:
+                appId_found = await self.check_if_appId_is_valid(app_id, language_code)
+                if not appId_found:
+                    # Assume maybe the appId is actually the plain text item name, so get appId from that
+                    name_check = await self.request_api(f"/ItemInfo/Name/{app_id}/{language_code}")
+                    app_id = name_check.get('appId') if name_check else app_id
             data = await self.request_api(f"/ItemInfo/RefinerByInput/{app_id}/{language_code}")
             if data:
                 parsed_data = await self.parse_nms_assistant_api_response(data)
@@ -293,6 +316,12 @@ class NMSAssistant(Skill):
         elif tool_name == "get_refiner_recipes_by_output":
             app_id = parameters.get("appId")
             language_code = parameters.get("languageCode")
+            if app_id and language_code:
+                appId_found = await self.check_if_appId_is_valid(app_id, language_code)
+                if not appId_found:
+                    # Assume maybe the appId is actually the plain text item name, so get appId from that
+                    name_check = await self.request_api(f"/ItemInfo/Name/{app_id}/{language_code}")
+                    app_id = name_check.get('appId') if name_check else app_id
             data = await self.request_api(f"/ItemInfo/RefinerByOutut/{app_id}/{language_code}")
             if data:
                 parsed_data = await self.parse_nms_assistant_api_response(data)
@@ -301,6 +330,12 @@ class NMSAssistant(Skill):
         elif tool_name == "get_cooking_recipes_by_input":
             app_id = parameters.get("appId")
             language_code = parameters.get("languageCode")
+            if app_id and language_code:
+                appId_found = await self.check_if_appId_is_valid(app_id, language_code)
+                if not appId_found:
+                    # Assume maybe the appId is actually the plain text item name, so get appId from that
+                    name_check = await self.request_api(f"/ItemInfo/Name/{app_id}/{language_code}")
+                    app_id = name_check.get('appId') if name_check else app_id
             data = await self.request_api(f"/ItemInfo/CookingByInput/{app_id}/{language_code}")
             if data:
                 parsed_data = await self.parse_nms_assistant_api_response(data)
@@ -309,6 +344,12 @@ class NMSAssistant(Skill):
         elif tool_name == "get_cooking_recipes_by_output":
             app_id = parameters.get("appId")
             language_code = parameters.get("languageCode")
+            if app_id and language_code:
+                appId_found = await self.check_if_appId_is_valid(app_id, language_code)
+                if not appId_found:
+                    # Assume maybe the appId is actually the plain text item name, so get appId from that
+                    name_check = await self.request_api(f"/ItemInfo/Name/{app_id}/{language_code}")
+                    app_id = name_check.get('appId') if name_check else app_id
             data = await self.request_api(f"/ItemInfo/CookingByOutut/{app_id}/{language_code}")
             if data:
                 parsed_data = await self.parse_nms_assistant_api_response(data)
