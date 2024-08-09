@@ -15,26 +15,24 @@ Video here: https://vimeo.com/978159719
 3. Start the program (WingmanAI.exe) and create a free account / choose to start a free 14 day trial.
 4. Close the program.
 5. Navigate to **%APPDATA%/Roaming/ShipBit/WingmanAI** (your appdata is unique to your Windows user profile, so it should look something like C:\Users\{your computer user name}\AppData\Roaming\ShipBit\WingmanAI
-6. Open the numbered folder, it will look something like 1_4_0 (as of this writing).  That refers to the version of Wingman.
-7. Download the release files from this repo: https://github.com/teddybear082/wingmanai-nomanssky/releases/tag/wingmanai_files.
-8. Unzip those release files **directly into** the numbered folder above, e.g., 1_4_0.  It will add a No Man's Sky folder to your configs folder and api_request and nms_assistant skills to your skills folder.
+6. Open the numbered folder, it will look something like 1_5_0 (as of this writing).  That refers to the version of Wingman.
+7. Download the release files from this repo: https://github.com/teddybear082/wingmanai-nomanssky/releases/tag/wingman_ai_files_1.5.0
+8. Unzip those release files **directly into** the "configs" folder in the numbered folder above, e.g., 1_5_0.  It will add a No Man's Sky folder to your configs folder. 
+![image](https://github.com/user-attachments/assets/78001346-65f9-442b-95f1-1329faaf645a)
 
-![image](https://github.com/teddybear082/wingmanai-nomanssky/assets/87204721/ca412c16-68a8-4f5f-b2c4-4e1d2c61d189)
+![image](https://github.com/user-attachments/assets/68d5c39a-1cbc-4245-826b-2e7cf80b12c8)
 
-
-![image](https://github.com/teddybear082/wingmanai-nomanssky/assets/87204721/1197d9c8-eb79-43f0-b7bc-4824351d432a)
-
-![image](https://github.com/teddybear082/wingmanai-nomanssky/assets/87204721/96c79284-1b14-4683-9672-6eb8c85caec5)
 
 9. To use replica "Suit Voice": download **XVAsynth from steam**: https://store.steampowered.com/app/1765720/xVASynth/ and install it.  Once installed, run it just to make sure it boots up and then close it.  Download the **Suit voice files** from this repo, here: https://github.com/teddybear082/wingmanai-nomanssky/releases/tag/xvasynth_voice_files.  Unzip those into your xVASynth install folder, where you find xVASynth.exe, for example: "C:\Program Files (x86)\Steam\steamapps\common\xVASynth".  It will add the voice to  xVASynth/resources/app/models/other.
-10. Run WingmanAI (WingmanAI.exe).  Click on the **No Man's Sky folder** that you now see at the top of the interface, and click "Load".  Click on the Suit avatar picture.  Click on the **wrench** to get to settings.  Click on **"Advanced"**.  Scroll down to **Text to Speech (TTS)** as shown in the picture below. 
- Click on the **gear icon**.  Enter the **path to your xVASynth install** in the Install directory field.  **Make sure to click save** the xVASYnth TTS setting.  Then make sure to actually **click to save again to save your profile itself**.
+10. Run WingmanAI (WingmanAI.exe).  Go to "Settings" at the top middle, and scroll down to "XVasynth".  Toggle the enable slider, and then make sure you put the directory of where your xvasynth install is:
 
-![image](https://github.com/teddybear082/wingmanai-nomanssky/assets/87204721/56238c60-539a-46eb-bbf9-df2a00acf2d0)
+   ![image](https://github.com/user-attachments/assets/d2806253-f2eb-42be-b8d9-56c34159dfb4)
 
-![image](https://github.com/teddybear082/wingmanai-nomanssky/assets/87204721/44e81e2f-8e05-4731-a66e-9dd1f9d63b2f)
+11. Click on the **No Man's Sky folder** that you now see at the top of the interface, and click "Load".  Click on the Suit avatar picture.  Click on the **wrench** to get to settings.  Click on **"Advanced"**.  Scroll down to **Text to Speech (TTS)** as shown in the picture below. 
+ Click on the **gear icon**.  Enter the **xVASynth** setting, and make sure it's set for the No Man's Sky voice. 
+![image](https://github.com/user-attachments/assets/0b3af400-077c-40c7-8c9b-0b28ae892647)
 
-11. Try to talk to your Suit Wingman! Right now it's configured to use the "\\" key in a "Push to Talk" style, but you can click on that and set your own key in the user interface. There are also ways to have "always on" voice mode, which are covered below in Advanced Options.  Now you can start No Man's Sky and WingmanAI will be on in the background, powering your Suit!  
+12. Try to talk to your Suit Wingman! Right now it's configured to use the "\\" key in a "Push to Talk" style, but you can click on that and set your own key in the user interface. There are also ways to have "always on" voice mode, which are covered below in Advanced Options.  Now you can start No Man's Sky and WingmanAI will be on in the background, powering your Suit!  
 
 
 ## What if I don't Want to Pay / Don't Want WingmanPro
