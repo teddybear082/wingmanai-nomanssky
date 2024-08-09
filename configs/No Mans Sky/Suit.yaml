@@ -383,16 +383,6 @@ record_key_codes:
 - 43
 skills:
 - custom_properties:
-  - id: default_directory
-  - id: allow_overwrite_existing
-  module: skills.file_manager.main
-- module: skills.typing_assistant.main
-- custom_properties:
-  - id: display
-  - id: show_screenshots
-  module: skills.vision_ai.main
-- module: skills.web_search.main
-- custom_properties:
   - id: quick_commands_learning_rule_count
   module: skills.quick_commands.main
 - custom_properties:
@@ -400,9 +390,117 @@ skills:
   - id: request_timeout
   - id: retry_delay
   - id: use_default_headers
+  examples:
+  - answer:
+      de: "(sendet eine GET-Anfrage an die angegebene URL und gibt die Antwortdaten\
+        \ zur\xFCck)"
+      en: (sends a GET request to the specified URL and returns the response data)
+    question:
+      de: Sende eine GET-Anfrage an "https://api.example.com/data".
+      en: Send a GET request to "https://api.example.com/data".
+  - answer:
+      de: "(sendet eine POST-Anfrage an die angegebene URL mit dem bereitgestellten\
+        \ JSON-K\xF6rper und gibt die Antwortdaten zur\xFCck)"
+      en: (sends a POST request to the specified URL with the provided JSON body and
+        returns the response data)
+    question:
+      de: "Sende eine POST-Anfrage an \"https://api.example.com/data\" mit JSON-K\xF6\
+        rper."
+      en: Send a POST request to "https://api.example.com/data" with JSON body.
+  - answer:
+      de: "(sendet eine GET-Anfrage mit einem API-Schl\xFCssel im X-API-Key Header\
+        \ und gibt die Antwortdaten zur\xFCck)"
+      en: (sends a GET request with an API key in the X-API-Key header and returns
+        the response data)
+    question:
+      de: "Sende eine GET-Anfrage mit einem API-Schl\xFCssel."
+      en: Send a GET request with an API key.
   module: skills.api_request.main
-- module: skills.nms_assistant.main
+- custom_properties:
+  - id: default_directory
+  - id: allow_overwrite_existing
+  examples:
+  - answer:
+      de: (speichert 'Hallo, Welt!' in hello.txt im Standardverzeichnis)
+      en: (saves 'Hello, World!' to hello.txt in the default directory)
+    question:
+      de: Speichere 'Hallo, Welt!' in hello.txt.
+      en: Save 'Hello, World!' to hello.txt.
+  - answer:
+      de: "(l\xE4dt den Inhalt von notes.md und liest ihn vor)"
+      en: (loads the content of notes.md and reads it out loud)
+    question:
+      de: Lade den Inhalt aus notes.md.
+      en: Load the content from notes.md.
+  - answer:
+      de: (erstellt ein Verzeichnis namens 'Projekte' im Standardverzeichnis)
+      en: (creates a directory named 'Projects' in the default directory)
+    question:
+      de: Erstelle ein Verzeichnis namens 'Projekte'.
+      en: Create a directory named 'Projects'.
+  module: skills.file_manager.main
+- examples:
+  - answer:
+      de: (Tippt "Wie geht's dir heute?" im aktiven Fenster an der aktuellen Cursor-Position
+        ein)
+      en: (types "How are you today?" in active window at the current cursor location)
+    question:
+      de: Tippe "Wie geht's dir heute?".
+      en: Type "How are you today?".
+  - answer:
+      de: "(Erfindet ein Gedicht \xFCber B\xE4ume und tippt es dann in das aktive\
+        \ Fenster)"
+      en: (imagines a poem about trees and then types it in the active window)
+    question:
+      de: "Schreibe ein Gedicht \xFCber B\xE4ume."
+      en: Type a poem about trees.
+  module: skills.typing_assistant.main
+- custom_properties:
+  - id: display
+  - id: show_screenshots
+  examples:
+  - answer:
+      de: Ich sehe die Spotify-App, die Musik abspielt.
+      en: I see Spotify running and playing music.
+    question:
+      de: Was siehst du auf meinem Bildschirm?
+      en: What is on my screen?
+  module: skills.vision_ai.main
+- examples:
+  - answer:
+      de: (ruft die neuesten Patch-Notes aus dem Spiel ab und zeigt sie an)
+      en: (fetches and displays the latest patch notes from the game)
+    question:
+      de: Was sind die neuesten Patch-Notes?
+      en: What are the latest patch notes?
+  module: skills.nms_assistant.main
+- custom_properties:
+  - id: default_directory
+  - id: display
+  examples:
+  - answer:
+      de: (macht einen Screenshot des fokussierten Fensters)
+      en: (takes a screenshot of the focused window)
+    question:
+      de: Mache einen Screenshot
+      en: Take a screenshot
+  - answer:
+      de: (macht einen Screenshot des fokussierten Fensters)
+      en: (takes a screenshot of the focused window)
+    question:
+      de: "Oh wow, das ist verr\xFCckt!"
+      en: Oh wow, this is crazy!
+  module: skills.auto_screenshot.main
+- examples:
+  - answer:
+      de: Ich habe folgende Neuigkeiten zu Star Citizen gefunden...
+      en: I found the following news about Star Citizen...
+    question:
+      de: Suche im Internet nach aktuellen Neuigkeiten zu Star Citizen und fasse sie
+        zusammen.
+      en: Search the internet for recent news about Star Citizen and give me the highlights.
+  module: skills.web_search.main
 xvasynth:
-  game_folder_name: other
-  voice: x_nomansskysuit
-  xvasynth_path: D:\DExtraSteamGames\steamapps\common\xVASynth
+  voice:
+    model_directory: other
+    voice_name: x_nomansskysuit
