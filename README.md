@@ -15,9 +15,9 @@ Video here: https://vimeo.com/978159719
 3. Start the program (WingmanAI.exe) and create a free account / choose to start a free 14 day trial.
 4. Close the program.
 5. Navigate to **%APPDATA%/Roaming/ShipBit/WingmanAI** (your appdata is unique to your Windows user profile, so it should look something like C:\Users\{your computer user name}\AppData\Roaming\ShipBit\WingmanAI
-6. Open the numbered folder, it will look something like 1_5_0 (as of this writing).  That refers to the version of Wingman.
-7. Download the release files from this repo: https://github.com/teddybear082/wingmanai-nomanssky/releases/tag/wingman_ai_files_1.5.0
-8. Unzip those release files **directly into** the "configs" folder in the numbered folder above, e.g., 1_5_0.  It will add a No Man's Sky folder to your configs folder. 
+6. Open the numbered folder, it will look something like 1_8_0 (as of this writing).  That refers to the version of Wingman.
+7. Download the release files from this repo: https://github.com/teddybear082/wingmanai-nomanssky/releases/tag/wingman_ai_files_1_8_0
+8. Unzip those release files **directly into** the "configs" folder in the numbered folder above, e.g., 1_8_0.  It will add a No Man's Sky folder to your configs folder. 
 ![image](https://github.com/user-attachments/assets/78001346-65f9-442b-95f1-1329faaf645a)
 
 ![image](https://github.com/user-attachments/assets/68d5c39a-1cbc-4245-826b-2e7cf80b12c8)
@@ -37,11 +37,11 @@ Video here: https://vimeo.com/978159719
 
 ## What if I don't Want to Pay / Don't Want WingmanPro
 
-The whole WingmanAI backend is open source!  You can find all the code here: https://github.com/ShipBit/wingman-ai.  You can even run it from source with python and bypass the entire .exe and UI.  Or, you can run the .exe but switch to free / local options for Speech to Text (whispercpp), LLM (choose "LocalLLM" for AI Conversation and AI Summarization Provider in the UI), and Text to Speech (xVaSynth already is local, or you can also use EdgeTTS).
+The whole WingmanAI backend is open source!  You can find all the code here: https://github.com/ShipBit/wingman-ai.  You can even run it from source with python and bypass the entire .exe and UI.  Or, you can run the .exe but switch to free / local options for Speech to Text (FasterWhisper, WingmanAI default speech to text provider), LLM (choose "LocalLLM Provider" in the UI), and Text to Speech (xVaSynth already is local, or you can also use XTTS2 via a XTTS2 openai-compatible server).
 
-What you're likely to find, though, is that there really aren't good open source AI model options that can do function calling, which powers most of the really fun things about this project, like controlling game inputs and using the NMSAssistant API.  
+What you're likely to find, though, is that there really aren't good open source AI model options that can do function calling and can run well at the time NMS is running, which powers most of the really fun things about this project, like controlling game inputs and using the NMSAssistant API.  
 
-However, if you find a good option for local AI that can handle function calling, WingmanAI supports that!  You can change the AI provider to "LocalLLM" in the user interface and tell WingmanAI where to find it.
+However, if you find a good option for local AI that can handle function calling (like Ollama with qwen-2.5 tool calling) and have a powerhouse computer that can run it at the same time as NMS, WingmanAI supports that!  You can change the AI provider to "LocalLLM" in the user interface and tell WingmanAI where to find it.
 
 If, like me, you can't find a good local AI provider, you can also try Groq, which is a free LLM provider using Llama3.  The only problem is we don't know how long Groq will be free and it is rate limited. You'll need a Groq API key.
 
